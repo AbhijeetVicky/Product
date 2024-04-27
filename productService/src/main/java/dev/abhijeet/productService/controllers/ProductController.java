@@ -6,6 +6,7 @@ import dev.abhijeet.productService.models.Category;
 import dev.abhijeet.productService.models.Product;
 import dev.abhijeet.productService.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,10 @@ import java.util.List;
 
 @RestController
 public class ProductController {
-    @Autowired
     ProductService productService;
-//    public   ProductController(ProductService productService){
-//        this.productService=productService;
-//    }
+    public   ProductController(@Qualifier("selfProductService") ProductService productService){
+        this.productService=productService;
+    }
     @PostMapping("/products")
     public Product createProduct(@RequestBody CreateProductRequestDto  productRequestDto){
         return productService.createProduct(

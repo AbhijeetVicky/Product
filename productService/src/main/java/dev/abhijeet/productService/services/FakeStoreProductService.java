@@ -2,20 +2,16 @@ package dev.abhijeet.productService.services;
 
 import dev.abhijeet.productService.dtos.FakeStoreCategoryDto;
 import dev.abhijeet.productService.dtos.FakeStoreProductDto;
-import dev.abhijeet.productService.dtos.UpdateProductRequestDto;
 import dev.abhijeet.productService.models.Category;
 import dev.abhijeet.productService.models.Product;
 import org.springframework.http.*;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.client.RestTemplate;
 
-import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("fakeStoreProductService")
 public class FakeStoreProductService implements  ProductService{
     private RestTemplate restTemplate;
     FakeStoreProductService(RestTemplate restTemplate){
